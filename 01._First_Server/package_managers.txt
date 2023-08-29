@@ -1,0 +1,13 @@
+npm, yarn, pnpm, pip, maven, gradle, ant, cargo
+
+maven       vs.         npm
+
+pom.xml                 package.json
+
+meta info               meta info           version af f.eks. Java, artefakter m.m.
+dependencies            dependencies
+life cycle methods      scripts
+
+
+
+// undersøg de forskellige udgaver af library: ^<version> og ~<version> 
