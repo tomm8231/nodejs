@@ -70,8 +70,7 @@
     <script>
 
         function displayTheBigAnswer() {
-            fetch("http://localhost:8080/big-answer")
-            //fetch("/big-answer")
+            fetch("/big-answer")
             .then((response) => response.json())
             .then((result) => {
                 const bigQuestionHeader = document.getElementById('big-answer-container')
