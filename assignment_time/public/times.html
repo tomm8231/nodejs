@@ -72,10 +72,10 @@
     </div>
 
     <script>
-        
+
         function displayCurrentTimes() {
 
-            fetch('http://localhost:8080/time/nuuk')
+            fetch('/time/nuuk')
             .then((response) => response.json())
             .then((result) => {
                 const clockHeader = document.getElementById('clock-container')
@@ -84,7 +84,7 @@
                 clockHeader.appendChild(timeElement);
             })
 
-            fetch('http://localhost:8080/time/torshavn')
+            fetch('/time/torshavn')
             .then((response) => response.json())
             .then((result) => {
                 const clockHeader = document.getElementById('clock-container')
@@ -93,7 +93,7 @@
                 clockHeader.appendChild(timeElement)
             })
 
-            fetch('http://localhost:8080/time/copenhagen')
+            fetch('/time/copenhagen')
             .then((response) => response.json())
             .then((result) => {
                 const clockHeader = document.getElementById('clock-container')
