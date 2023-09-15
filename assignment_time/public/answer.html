@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spørgsmål</title>
+    <title>Svar</title>
     <style>
         body, h1, div {
             margin: 0;
@@ -15,7 +15,7 @@
             color: white;
             font-family: Arial
         }
-
+        
         header {
             background-color: black;
             text-align:right;
@@ -63,25 +63,24 @@
             </ul>
         </nav>
     </header>
-
-    <div id="big-question-container">
-        
+    <div id="big-answer-container">
+    
     </div>
 
     <script>
-        
-        function displayTheBigQuestion() {
-            fetch("http://localhost:8080/big-question")
+
+        function displayTheBigAnswer() {
+            fetch("http://localhost:8080/big-answer")
             .then((response) => response.json())
             .then((result) => {
-                const bigQuestionHeader = document.getElementById('big-question-container')
+                const bigQuestionHeader = document.getElementById('big-answer-container')
                 const bigQuestionElement = document.createElement('h3')
-                bigQuestionElement.innerText = result.data
+                bigQuestionElement.innerText = `Tag til ${result.timeZone} og spis om ${result.hoursUntilDinner}:${result.minutesUntilDinner}`
                 bigQuestionHeader.appendChild(bigQuestionElement)
             })
         }
 
-        displayTheBigQuestion()
+        displayTheBigAnswer()
     </script>
 
 </body>

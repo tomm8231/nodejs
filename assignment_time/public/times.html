@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedeligt</title>
+    <style>
+        body, h1, div {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial
+        }
+
+        header {
+            background-color: black;
+            text-align:right;
+        }
+
+        nav li {
+            display:inline;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bolder;
+            margin: 10px;
+            padding: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        nav a:hover {
+            border: 2px solid white;
+        }
+
+        .currentLink {
+            border: 2px solid white;
+        }
+
+        div div {
+            background-color: black;
+            padding: 10px;
+            text-align: center;
+            border: 5px solid white;
+            margin: 80px;
+        }
+
+        h3 {
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Spørgsmål</a></li>
+                <li><a href="/answer">Svar</a></li>
+                <li><a href="/times">Klokken her og der</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="clock-container">
+    </div>
+
+    <script>
+        
+        function displayCurrentTimes() {
+
+            fetch('http://localhost:8080/time/nuuk')
+            .then((response) => response.json())
+            .then((result) => {
+                const clockHeader = document.getElementById('clock-container')
+                const timeElement = document.createElement('div');
+                timeElement.innerHTML = `<h3><strong>Nuuk:</strong> ${result.data}</h3>`;
+                clockHeader.appendChild(timeElement);
+            })
+
+            fetch('http://localhost:8080/time/torshavn')
+            .then((response) => response.json())
+            .then((result) => {
+                const clockHeader = document.getElementById('clock-container')
+                const timeElement = document.createElement('div')
+                timeElement.innerHTML = `<h3><strong>Torshavn:</strong> ${result.data}</h3>`
+                clockHeader.appendChild(timeElement)
+            })
+
+            fetch('http://localhost:8080/time/copenhagen')
+            .then((response) => response.json())
+            .then((result) => {
+                const clockHeader = document.getElementById('clock-container')
+                const timeElement = document.createElement('div')
+                timeElement.innerHTML = `<h3><strong>København:</strong> ${result.data}`
+                clockHeader.appendChild(timeElement)
+            })
+
+        }
+
+        displayCurrentTimes()
+    </script>
+</body>
+</html>
