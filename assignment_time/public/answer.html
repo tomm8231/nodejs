@@ -70,14 +70,18 @@
     <script>
 
         function displayTheBigAnswer() {
-            fetch("/big-answer")
+            fetch("http://localhost:8080/big-answer")
+            //fetch("/big-answer")
             .then((response) => response.json())
             .then((result) => {
                 const bigQuestionHeader = document.getElementById('big-answer-container')
                 const bigQuestionElement = document.createElement('h3')
                 const minutesPluralOrSingular = (result.minutesUntilDinner === 1) ? "minut" : "minutter"
                 const hoursPluralOrSingular = (result.hoursUntilDinner === 1) ? "time" : "timer"
-                bigQuestionElement.innerText = `Tag til ${result.timeZone} og spis om ${result.hoursUntilDinner} ${hoursPluralOrSingular} og ${result.minutesUntilDinner} ${minutesPluralOrSingular}`
+
+                bigQuestionElement.innerText = (result.hoursUntilDinner !== 9999) 
+                ? `Tag til ${result.timeZone} og spis om ${result.hoursUntilDinner} ${hoursPluralOrSingular} og ${result.minutesUntilDinner} ${minutesPluralOrSingular}`
+                : `Alle tidszoner fra Nuuk til København er gledet forbi 18.00 for i dag`
                 bigQuestionHeader.appendChild(bigQuestionElement)
             })
         }
