@@ -76,7 +76,7 @@
                 const bigQuestionHeader = document.getElementById('big-answer-container')
                 const bigQuestionElement = document.createElement('h3')
                 const minutesPluralOrSingular = (result.minutesUntilDinner === 1) ? "minut" : "minutter"
-                const hoursPluralOrSingular = (result.hoursUntilDinner === 1) ? "minut" : "minutter"
+                const hoursPluralOrSingular = (result.hoursUntilDinner === 1) ? "time" : "timer"
                 bigQuestionElement.innerText = `Tag til ${result.timeZone} og spis om ${result.hoursUntilDinner} ${hoursPluralOrSingular} og ${result.minutesUntilDinner} ${minutesPluralOrSingular}`
                 bigQuestionHeader.appendChild(bigQuestionElement)
             })
