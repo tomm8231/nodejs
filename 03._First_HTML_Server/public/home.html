@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="./home.css"/>
+    <script src="./home.js"></script>
 </head>
 <body>
     <h1>HOME</h1>
@@ -15,6 +17,9 @@
         //assignment: fetch welcomeMessage and console.log it
         //assignment bonus: show it one the page
 
+        setTimeout(() => { window.location.href = "/secondPage" }, 3000)
+
+
         fetch('http://localhost:8080/welcomeMessage?user=Tommy')
         .then((response) => response.json())
         .then((result) => {
@@ -22,6 +27,8 @@
             welcomeMessageHeader.innerText = result.data
             console.log(data)
         })
+
+
         
 
     </script>
