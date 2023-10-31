@@ -4,6 +4,7 @@ import express from "express"
 //Jeg instansierer express
 const app = express()
 app.use(express.static("public"))
+app.use(express.urlencoded({ extended: true}))
 
 
 import { randomInFromInterval } from "./util/randomUtil.js"
@@ -63,6 +64,11 @@ app.get("/battlepokemon", (req, res) => {
         currentPokemon.strength--
         res.send({ data: currentPokemon })
     }
+})
+
+app.post("/contact", (req, res) => {
+    console.log("message sent", req.body);
+    res.redirect("/")
 })
 
 

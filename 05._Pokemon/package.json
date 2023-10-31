@@ -6,8 +6,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:prod": "cross-env PORT=80 nodemon.cmd app.js",
-    "start:dev": "cross-env PORT=8080 node app.js"
+    "start:prod": "cross-env PORT=80 node app.js",
+    "start:dev": "cross-env PORT=8080 nodemon.cmd app.js"
   },
   "keywords": [
     "pokemon",
@@ -21,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "cross-env": "^7.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "toastr": "^2.1.4"
   }
 }
