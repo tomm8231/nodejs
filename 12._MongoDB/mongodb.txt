@@ -1,0 +1,7 @@
+MySQL vs. MongoDB
+
+
+Denormalisation and duplicated code is okay as data is cheap and is less timeconsuming than normalisation
+
+
+Hvorfor er det smartere at bruge MongoDB i Node? Anders nævnte det ifm. column vs json
